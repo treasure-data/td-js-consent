@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Consent Management</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/demo2.css">
+  <style>
+    td-consent-banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      color: white;
+    }
+  </style>
+
+  <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script type="text/javascript">
+    !function(t,e){if(void 0===e[t]){e[t]=function(){e[t].clients.push(this),this._init=[Array.prototype.slice.call(arguments)]},e[t].clients=[];for(var s=function(t){return function(){return this["_"+t]=this["_"+t]||[],this["_"+t].push(Array.prototype.slice.call(arguments)),this}},n=["addRecord","blockEvents","fetchServerCookie","fetchGlobalID","fetchUserSegments","resetUUID","ready","setSignedMode","setAnonymousMode","set","trackEvent","trackPageview","trackClicks","unblockEvents","addContext","addConsents","saveContexts","saveConsents","getConsents"],r=0;r<n.length;r++){var o=n[r];e[t].prototype[o]=s(o)}var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//td-jssdk.s3.amazonaws.com/td.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)}}("Treasure",this);
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-wrapper">
+      <div class="other">
+        <div class="form-field">
+          <label for="contextId"> Context ID </label>
+          <input type="text" name="contextId">
+        </div>
+        <div class="form-field">
+          <label for="consentPurpose"> Consent purpose </label>
+          <input type="text" name="consentPurpose">
+        </div>
+
+        <div class="form-field">
+          <label for="content"> Content for updating </label>
+          <textarea name="content"></textarea>
+        </div>
+
+        <div class="actions">
+          <button class="update-consent">Update consent</button>
+          <button class="update-context">Update context</button>
+        </div>
+      </div>
+
+      <div class="consent-form consent-form-1">
+        <h2>Example 1</h2>
+        <section>
+          <h3>Terms and Condditions</h3>
+          <p>Voluptate commodo aute ad ipsum do nisi quis veniam aliqua ex aliquip cillum. In incididunt nostrud fugiat ullamco minim quis. Consequat minim ut fugiat pariatur ex consequat. Id exercitation est duis Lorem et ex sit excepteur amet sint cillum proident mollit. Adipisicing eu cupidatat proident aute occaecat anim non minim laboris. Proident in laboris qui qui reprehenderit eu sint in id non magna. Eu sint laboris occaecat aliquip eiusmod labore ipsum.
+
+    Enim ullamco commodo do aliqua. Consectetur ut anim duis in nisi sint eiusmod amet excepteur proident deserunt. Commodo laboris duis aliquip esse culpa reprehenderit est fugiat esse Lorem anim. Labore in do pariatur aliqua sint do qui do eiusmod qui ut adipisicing ut. Irure laborum proident aliquip duis sunt. Esse magna magna nulla reprehenderit anim enim aliquip laboris eu exercitation.
+
+    Ullamco irure culpa qui et cupidatat cupidatat tempor aliqua exercitation. Velit incididunt officia ut et laborum nulla. Id Lorem ullamco nisi anim qui minim id. Do dolor eu ut nostrud pariatur exercitation sint culpa laborum nulla exercitation ea sit laborum.</p>
+          <p>You must accept the terms and conditions</p>
+          <label><input type="checkbox" value="1" name="agree"> I agree to the terms and conditions</label>
+        </section>
+        <section>
+          <h3>Contact permission</h3>
+          <p>Dolore proident occaecat eu dolor adipisicing. Incididunt laborum duis proident nostrud nisi qui nulla. Mollit magna mollit veniam exercitation reprehenderit velit laborum labore exercitation ad ut aliqua consequat eu. Laboris et deserunt velit dolore mollit. Duis do reprehenderit pariatur reprehenderit aliqua elit dolore.
+
+    Nisi commodo irure in irure nulla exercitation laborum. Pariatur non culpa in id fugiat laboris incididunt sunt dolore nulla ipsum tempor. Minim esse quis id elit veniam laboris veniam ullamco exercitation. Ex aliqua ea enim laboris laborum anim fugiat labore irure consequat pariatur esse ipsum aliqua. Id veniam sunt laboris Lorem deserunt nisi.</p>
+          <label><input type="radio" value="1" name="permission"> Yes please, I'd like to hear about offers and services</label>
+          <label><input type="radio" value="0" name="permission"> No thanks, I don't want to hear about offers and services</label>
+        </section>
+        <button class="save-prefs-1">Save</button>
+      </div>
+
+      <div class="consent-form consent-form-2">
+        <h2>Example 2</h2>
+        <section>
+          <h3>Communication preferences</h3>
+          <p>Officia sint exercitation reprehenderit laboris magna.Esse commodo reprehenderit laborum consectetur magna sint ex dolore labore est nulla ullamco.</p>
+
+          <label><input type="checkbox" name="sms"> SMS (Default Context)</label>
+          <label><input type="checkbox" name="email"> Email</label>
+          <label><input type="checkbox" name="samples"> Samples - Yes I would like to receive FREE Samples from time to time</label>
+        </section>
+        <button class="save-prefs-2">Save</button>
+      </div>
+
+      <div class="other">
+        <a href="#" class="edit-preferences">Website Data Collection Preferences</a>
+      </div>
+    </div>
+    <div class="debugger">
+      <h4>Contexts</h4>
+      <pre class="contexts"></pre>
+      <h4>Consents</h4>
+      <pre class="consents"></pre>
+      <h4>Expired consents</h4>
+      <pre class="expired-consents"></pre>
+    </div>
+  </div>
+  <script src="https://td-jssdk.s3.amazonaws.com/td-cm.js"></script>
+  <script src="js/demo2.js"></script>
+</body>
+</html>
