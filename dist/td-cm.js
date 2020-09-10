@@ -4326,7 +4326,7 @@
 
         if (target.nodeName === 'BUTTON') {
           event.stopPropagation();
-          this.dispatchEvent(new Event('cancel'));
+          this.dispatchEvent(new Event('cancelBanner'));
           this.dispose();
         }
       }
@@ -4543,9 +4543,9 @@
       value: function handleAction(target) {
         if (target.classList.contains('submit')) {
           this.saveSettings();
+        } else {
+          this.dispatchEvent(new Event('cancelForm'));
         }
-
-        this.dispose();
       }
     }, {
       key: "dispose",
@@ -4555,7 +4555,7 @@
     }, {
       key: "saveSettings",
       value: function saveSettings() {
-        this.dispatchEvent(new Event('save'));
+        this.dispatchEvent(new Event('saveForm'));
       }
     }, {
       key: "render",
@@ -4629,6 +4629,8 @@
   }
 
   var index = {
+    _consentStates: {},
+    _savedByForm: false,
     setConfig: function setConfig() {
       var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       this.config = options;
@@ -4660,7 +4662,7 @@
       this.consentBanner.bannerContent = bannerContent;
       this.consentBanner.bannerSubContent = bannerSubContent;
       this.consentBanner.addEventListener('click', this);
-      this.consentBanner.addEventListener('cancel', this);
+      this.consentBanner.addEventListener('cancelBanner', this);
       container.appendChild(this.consentBanner);
     },
     showBanner: function showBanner() {
@@ -4686,6 +4688,7 @@
       var container = this._getContainer(this.config.container);
 
       assertContainer(container);
+      this._savedByForm = false;
       var _options$customConsen = options.customConsents,
           customConsents = _options$customConsen === void 0 ? {} : _options$customConsen;
       var _this$config2 = this.config,
@@ -4710,32 +4713,65 @@
       this.consentForm.cancelButtonText = cancelButtonText;
       this.consentForm.saveButtonText = saveButtonText;
       this.consentForm.preferences = preferences;
-      this.consentForm.addEventListener('save', this);
+      this.consentForm.addEventListener('saveForm', this);
+      this.consentForm.addEventListener('cancelForm', this);
       this.consentForm.addEventListener('selectionChange', this);
       container.appendChild(this.consentForm);
     },
-    selectionChange: function selectionChange(event) {
+    _selectionChange: function _selectionChange(event) {
       var selection = event.detail || {};
       var contextId = selection.contextId,
           purpose = selection.purpose,
           value = selection.value;
-      this.config.sdk.updateConsent(contextId, defineProperty({}, purpose, {
-        status: value
-      }));
+
+      if (!this._consentStates[contextId]) {
+        this._consentStates[contextId] = defineProperty({}, purpose, {
+          status: value
+        });
+      } else {
+        var context = this._consentStates[contextId];
+
+        if (!context[purpose]) {
+          context[purpose] = {
+            status: value
+          };
+        } else {
+          context[purpose]['status'] = value;
+        }
+      }
     },
-    save: function save() {
+    _saveForm: function _saveForm() {
+      if (!isObjectEmpty(this._consentStates)) {
+        for (var contextId in this._consentStates) {
+          for (var purpose in this._consentStates[contextId]) {
+            this.config.sdk.updateConsent(contextId, defineProperty({}, purpose, this._consentStates[contextId][purpose]));
+          }
+        }
+
+        this._consentStates = {};
+      }
+
       this._saveConsents();
 
       this.consentForm.dispose();
+      this._savedByForm = true;
     },
-    click: function click() {
+    _cancelForm: function _cancelForm() {
+      this._consentStates = {};
+      this._savedByForm = false;
+      this.consentForm.dispose();
+    },
+    _click: function _click() {
       this.openConsentManager();
     },
-    cancel: function cancel() {
-      this._saveConsents();
+    _cancelBanner: function _cancelBanner() {
+      if (!this._savedByForm) {
+        this._saveConsents();
+      }
     },
     handleEvent: function handleEvent(event) {
-      this[event.type](event);
+      var handler = ['_', event.type].join('');
+      this[handler](event);
     }
   };
 
