@@ -24,7 +24,11 @@
         brand: 'Sainsbury',
         domain_name: 'sainsbury.com',
         collection_type: 'Signin Form',
-        collection_point_id: 'signin_form'
+        collection_point_id: 'signin_form',
+        other_1: 'other 1',
+        other_2: 'other 2',
+        other_3: 'other 3',
+        other_4: 'other 4'
       })
 
       td.saveContexts()
@@ -66,7 +70,7 @@
 
   function addTermsAndConditions (checked) {
     var context = getContextByCollectionType('Signin Form') || getContextByCollectionType('default')
-    var status = checked ? 'given' : 'rejected'
+    var status = checked ? td.consentManager.states.GIVEN : td.consentManager.states.REFUSED
     td.addConsents({
       'term and conditions': {
         description: 'Voluptate exercitation nulla qui irure do aute culpa laboris culpa exercitation commodo deserunt.',
@@ -79,7 +83,7 @@
 
   function addPermissionConsent (checked) {
     var context = getContextByCollectionType('Signin Form') || getContextByCollectionType('default')
-    var status = checked ? 'given' : 'rejected'
+    var status = checked ? td.consentManager.states.GIVEN : td.consentManager.states.REFUSED
     td.addConsents({
       'permission': {
         description: 'Voluptate exercitation nulla qui irure do aute culpa laboris culpa exercitation commodo deserunt.',
@@ -98,26 +102,18 @@
         brand: 'TreasureData',
         domain_name: 'treasuredata.com',
         collection_type: 'Signup Form',
-        collection_point_id: 'signup_form'
+        collection_point_id: 'signup_form',
+        other_1: 'other 1',
+        other_2: 'other 2',
+        other_3: 'other 3',
+        other_4: 'other 4'
       })
       td.saveContexts()
     } else {
       contextId = context.context_id
     }
 
-    var status = checked ? 'given' : 'rejected'
-
-    if (name === 'sms') {
-      td.addConsents({
-        'sms marketing': {
-          description: 'Id deserunt minim ullamco enim incididunt non laborum labore et sunt et.',
-          datatype: 'Attributions',
-          // context_id: contextId,
-          status: status,
-          expiry_date: '2020-07-30'
-        }
-      })
-    }
+    var status = checked ? td.consentManager.states.GIVEN : td.consentManager.states.REFUSED
 
     if (name === 'email') {
       td.addConsents({
@@ -143,6 +139,18 @@
     }
   }
 
+  function addMarketingConsent(checked) {
+    var status = checked ? td.consentManager.states.GIVEN : td.consentManager.states.REFUSED
+    td.addConsents({
+      'sms marketing': {
+        description: 'Id deserunt minim ullamco enim incididunt non laborum labore et sunt et.',
+        datatype: 'Attributions',
+        status: status,
+        expiry_date: '2020-07-30'
+      }
+    })
+  }
+
   var form1 = document.querySelector('.form-wrapper')
   form1.addEventListener('click', function (event) {
     var name = event.target.name
@@ -153,8 +161,10 @@
     } else if (name === 'permission') {
       var checked = event.target.value === "1" || false
       addPermissionConsent(checked)
-    } else if (name === 'sms' || name === 'email' || name === 'samples') {
+    } else if (name === 'email' || name === 'samples') {
       addSignupConsents(name, event.target.checked)
+    } else if (name === 'sms') {
+      addMarketingConsent(event.target.checked)
     }
 
     updateDebugger()
@@ -170,17 +180,18 @@
   var editPreference = document.querySelector('.edit-preferences')
   editPreference.addEventListener('click', function (event) {
     event.preventDefault()
-    TDConsentManager.openConsentManager({
-      customConsents: {
-        'custom 1': {
-          description: 'blah'
-        }
-      }
-    })
+    TDConsentManager.openConsentManager()
   })
 
   var btn2 = document.querySelector('.save-prefs-2')
   btn2.addEventListener('click', function (event) {
+    event.preventDefault()
+    td.saveConsents()
+    updateDebugger()
+  })
+
+  var btn3 = document.querySelector('.save-prefs-3')
+  btn3.addEventListener('click', function (event) {
     event.preventDefault()
     td.saveConsents()
     updateDebugger()
@@ -216,5 +227,10 @@
     td.updateConsent(contextId, json)
     td.saveConsents()
     updateDebugger()
+  })
+
+  var saveContextsBtn = document.querySelector('.save-contexts')
+  saveContextsBtn.addEventListener('click', function () {
+    td.saveContexts()
   })
 }()

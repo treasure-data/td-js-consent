@@ -4259,7 +4259,7 @@
   }
 
   function _templateObject() {
-    var data = taggedTemplateLiteral(["\n  :host {\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    z-index: 1000;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background: rgba(67, 90, 111, 0.5);\n\n    font-family: Arial, sans-serif;\n    line-height: normal;\n    font-size: 16px;\n    overflow-y: auto;\n  }\n\n  h3 {\n    margin: 0;\n    padding: 0;\n  }\n\n  .dialog-content {\n    width: 750px;\n    max-width: calc(100vw - 16px);\n\n    background-color: white;\n    border-radius: 8px;\n    margin: 8px;\n  }\n  .dialog-content .dialog-title,\n  .dialog-content .dialog-description,\n  .dialog-content .dialog-consents,\n  .dialog-content .dialog-actions {\n    padding: 15px;\n  }\n\n  .dialog-content .dialog-title {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    border-bottom: 1px solid rgba(67, 90, 111, 0.2);\n  }\n\n  .dialog-content .dialog-title button {\n    border-style: none;\n    outline: none;\n    background: none;\n    padding: 8px;\n    color: black;\n    cursor: pointer;\n  }\n\n  .dialog-content .dialog-actions {\n    display: flex;\n    justify-content: flex-end;\n  }\n\n  .dialog-actions button {\n    border-radius: 4px;\n    border-width: 1px;\n    border-color: rgba(67, 90, 111, 0.2);\n    outline: none;\n    padding: 0 15px;\n    cursor: pointer;\n    height: 32px;\n  }\n\n  .dialog-actions button:not(:first-child) {\n    margin-left: 8px;\n  }\n\n  .dialog-actions button.primary {\n    background-color: #47b881;\n  }\n\n  .dialog-actions button.secondary {\n    background-color: #ffffff;\n  }\n\n  .context-wrapper h3 {\n    padding: 3px 0;\n  }\n\n  .context-wrapper:not(:first-of-type) {\n    margin-top: 10px;\n  }\n\n  table {\n    width: 100%;\n    border-collapse: collapse;\n    font-size: 14px;\n  }\n\n  table th {\n    background-color: #f7f8fa;\n  }\n\n  table th,\n  table td {\n    padding: 8px 12px;\n    border: 1px solid rgba(67, 90, 111, 0.2)\n  }\n\n  table td label {\n    display: block;\n    white-space: nowrap;\n    margin-botton: 5px;\n  }\n"]);
+    var data = taggedTemplateLiteral(["\n  :host {\n    position: fixed;\n    top: 0;\n    left: 0;\n    bottom: 0;\n    right: 0;\n    z-index: 1000;\n    background: rgba(67, 90, 111, 0.5);\n    font-family: Arial, sans-serif;\n    line-height: normal;\n    font-size: 16px;\n    overflow-y: auto;\n  }\n\n  h3 {\n    margin: 0;\n    padding: 0;\n  }\n\n  .dialog-content {\n    width: 750px;\n    max-width: calc(100vw - 16px);\n\n    background-color: white;\n    border-radius: 8px;\n    margin: 8px auto;\n  }\n  .dialog-content .dialog-title,\n  .dialog-content .dialog-description,\n  .dialog-content .dialog-consents,\n  .dialog-content .dialog-actions {\n    padding: 15px;\n  }\n\n  .dialog-content .dialog-title {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    border-bottom: 1px solid rgba(67, 90, 111, 0.2);\n  }\n\n  .dialog-content .dialog-title button {\n    border-style: none;\n    outline: none;\n    background: none;\n    padding: 8px;\n    color: black;\n    cursor: pointer;\n  }\n\n  .dialog-content .dialog-actions {\n    display: flex;\n    justify-content: flex-end;\n  }\n\n  .dialog-actions button {\n    border-radius: 4px;\n    border-width: 1px;\n    border-color: rgba(67, 90, 111, 0.2);\n    outline: none;\n    padding: 0 15px;\n    cursor: pointer;\n    height: 32px;\n  }\n\n  .dialog-actions button:not(:first-child) {\n    margin-left: 8px;\n  }\n\n  .dialog-actions button.primary {\n    background-color: #47b881;\n  }\n\n  .dialog-actions button.secondary {\n    background-color: #ffffff;\n  }\n\n  .context-wrapper h3 {\n    padding: 3px 0;\n  }\n\n  .context-wrapper:not(:first-of-type) {\n    margin-top: 10px;\n  }\n\n  table {\n    width: 100%;\n    border-collapse: collapse;\n    font-size: 14px;\n  }\n\n  table th {\n    background-color: #f7f8fa;\n  }\n\n  table th,\n  table td {\n    padding: 8px 12px;\n    border: 1px solid rgba(67, 90, 111, 0.2)\n  }\n\n  table td label {\n    display: block;\n    white-space: nowrap;\n    margin-botton: 5px;\n  }\n"]);
 
     _templateObject = function _templateObject() {
       return data;
@@ -4400,7 +4400,7 @@
   }
 
   function _templateObject2$1() {
-    var data = taggedTemplateLiteral(["\n      <div class=\"context-wrapper\">\n        <h3>Context scope: ", "</h3>\n        <table>\n          <thead>\n            <tr>\n              <th>Allow</th>\n              <th>Purpose</th>\n              <th>Description</th>\n              <th>Data Type</th>\n            </tr>\n          </thead>\n          <tbody>\n            ", "\n          </tbody>\n        </table>\n      </div>\n    "]);
+    var data = taggedTemplateLiteral(["\n      <div class=\"context-wrapper\">\n        <h3>Context scope: ", "</h3>\n        <table>\n          <thead>\n            <tr>\n              <th>", "</th>\n              <th>", "</th>\n              <th>", "</th>\n              <th>", "</th>\n            </tr>\n          </thead>\n          <tbody>\n            ", "\n          </tbody>\n        </table>\n      </div>\n    "]);
 
     _templateObject2$1 = function _templateObject2() {
       return data;
@@ -4422,6 +4422,10 @@
   function _createSuper$4(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct$5(); return function _createSuperInternal() { var Super = getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return possibleConstructorReturn(this, result); }; }
 
   function _isNativeReflectConstruct$5() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+  var LABEL_ALLOW = 'Allow';
+  var LABEL_PURPOSE = 'Purpose';
+  var LABEL_DESC = 'Description';
+  var LABEL_DATATYPE = 'Data Type';
 
   var TdConsentForm = /*#__PURE__*/function (_LitElement) {
     inherits(TdConsentForm, _LitElement);
@@ -4450,6 +4454,9 @@
             type: String
           },
           preferences: {
+            type: Object
+          },
+          consentStates: {
             type: Object
           }
         };
@@ -4574,7 +4581,7 @@
     }, {
       key: "renderContext",
       value: function renderContext(context) {
-        return html(_templateObject2$1(), context.collection_type, this.renderConsents(context.consents));
+        return html(_templateObject2$1(), context.collection_type, LABEL_ALLOW, LABEL_PURPOSE, LABEL_DESC, LABEL_DATATYPE, this.renderConsents(context.consents));
       }
     }, {
       key: "renderConsents",
@@ -4591,16 +4598,16 @@
     }, {
       key: "getInputs",
       value: function getInputs(contextId, name, inputName, status) {
-        return [html(_templateObject4(), this.getInput(contextId, name, inputName, status, 'given')), html(_templateObject5(), this.getInput(contextId, name, inputName, status, 'rejected'))];
+        return [html(_templateObject4(), this.getInput(contextId, name, inputName, status, this.consentStates.GIVEN)), html(_templateObject5(), this.getInput(contextId, name, inputName, status, this.consentStates.REFUSED))];
       }
     }, {
       key: "getInput",
       value: function getInput(contextId, name, inputName, preferStatus, status) {
-        if (preferStatus === status) {
-          return html(_templateObject6(), inputName, name, contextId, String(status));
+        if (preferStatus.toLowerCase() === status.toLowerCase()) {
+          return html(_templateObject6(), "".concat(contextId, "-").concat(inputName), name, contextId, String(status));
         }
 
-        return html(_templateObject7(), inputName, name, contextId, String(status));
+        return html(_templateObject7(), "".concat(contextId, "-").concat(inputName), name, contextId, String(status));
       }
     }]);
 
@@ -4713,6 +4720,7 @@
       this.consentForm.cancelButtonText = cancelButtonText;
       this.consentForm.saveButtonText = saveButtonText;
       this.consentForm.preferences = preferences;
+      this.consentForm.consentStates = this.config.sdk.consentManager.states || {};
       this.consentForm.addEventListener('saveForm', this);
       this.consentForm.addEventListener('cancelForm', this);
       this.consentForm.addEventListener('selectionChange', this);

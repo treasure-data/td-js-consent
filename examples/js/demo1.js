@@ -1,9 +1,10 @@
 !(function () {
   function successCallback (preferences) {
-    if (preferences['analytics'].status === 'given') {
+    var analytics = preferences['analytics'] || {}
+    if (analytics.status === 'given') {
       td.setSignedMode()
       td.unblockEvents()
-    } else if (preferences['analytics'].status === 'rejected') {
+    } else if (analytics.status === 'refused') {
       td.setAnonymousMode()
       td.blockEvents()
     }
@@ -16,7 +17,13 @@
     writeKey: '1/xxxxxxxxxx',
     host: 'in.treasuredata.com',
     consentManager: {
-      successConsentCallback: successCallback
+      successConsentCallback: successCallback,
+      expiredConsentsCallback: function (consents) {
+        console.log(consents)
+      },
+      failureConsentCallback: function (error) {
+        console.log(error)
+      }
     }
   })
   td.ready(function () {
@@ -38,10 +45,10 @@
         analytics: {
           description:
             'We use browser cookies that are necessary for the site to work as intended.For example, we store your website data collection preferences so we can honor them if you return to our site. You can disable these cookies in your browser settings but if you do the site may not work as intended.',
-          status: 'given',
+          status: td.consentManager.states.GIVEN,
           datatype: 'Visits',
           context_id: contextId,
-          expiry_date: '2020-10-30'
+          expiry_date: '2020-09-10'
         }
       })
 
@@ -56,7 +63,7 @@
         recommendations: {
           description:
             'Ex aliquip aliqua irure quis nisi reprehenderit pariatur occaecat excepteur consectetur amet consequat.',
-          status: 'rejected',
+          status: td.consentManager.states.GIVEN,
           datatype: 'Purchases',
           context_id: contextId
         },
@@ -64,7 +71,7 @@
           description:
             'Ex aliquip aliqua irure quis nisi reprehenderit pariatur occaecat excepteur consectetur amet consequat.',
           datatype: 'Purchases',
-          status: 'rejected',
+          status: td.consentManager.states.REFUSED,
           context_id: contextId
         }
       })
@@ -80,7 +87,7 @@
         predictions: {
           description:
             'Ex aliquip aliqua irure quis nisi reprehenderit pariatur occaecat excepteur consectetur amet consequat.',
-          status: 'rejected',
+          status: td.consentManager.states.REFUSED,
           datatype: 'Visits',
           context_id: contextId
         },
@@ -88,7 +95,7 @@
           description:
             'Ex aliquip aliqua irure quis nisi reprehenderit pariatur occaecat excepteur consectetur amet consequat.',
           datatype: 'Attributions',
-          status: 'rejected',
+          status: td.consentManager.states.REFUSED,
           context_id: contextId
         }
       })

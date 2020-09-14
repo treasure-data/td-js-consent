@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Consent Management</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/main.css">
   <style>
     td-consent-banner {
       position: absolute;
@@ -18,352 +16,153 @@
   </style>
 
   <script src="https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
   <script type="text/javascript">
-    !function(t,e){if(void 0===e[t]){e[t]=function(){e[t].clients.push(this),this._init=[Array.prototype.slice.call(arguments)]},e[t].clients=[];for(var s=function(t){return function(){return this["_"+t]=this["_"+t]||[],this["_"+t].push(Array.prototype.slice.call(arguments)),this}},n=["addRecord","blockEvents","fetchServerCookie","fetchGlobalID","fetchUserSegments","resetUUID","ready","setSignedMode","setAnonymousMode","set","trackEvent","trackPageview","trackClicks","unblockEvents","addContext","addConsents","saveContexts","saveConsents","getConsents"],r=0;r<n.length;r++){var o=n[r];e[t].prototype[o]=s(o)}var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//td-jssdk.s3.amazonaws.com/td.min.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)}}("Treasure",this);
+    !function(t,e){if(void 0===e[t]){e[t]=function(){e[t].clients.push(this),this._init=[Array.prototype.slice.call(arguments)]},e[t].clients=[];for(var s=function(t){return function(){return this["_"+t]=this["_"+t]||[],this["_"+t].push(Array.prototype.slice.call(arguments)),this}},n=["addRecord","blockEvents","fetchServerCookie","fetchGlobalID","fetchUserSegments","resetUUID","ready","setSignedMode","setAnonymousMode","set","trackEvent","trackPageview","trackClicks","unblockEvents","addContext","addConsents","saveContexts","saveConsents","getConsents"],r=0;r<n.length;r++){var o=n[r];e[t].prototype[o]=s(o)}var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https:":"http:")+"//td-jssdk.s3.amazonaws.com/td.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(a,c)}}("Treasure",this);
   </script>
 </head>
-<body>
-  <!-- Header
-  ================================================== -->
-  <header class="s-header">
-
-      <div class="row">
-
-          <div class="s-header__content column">
-              <h1 class="s-header__logotext">
-                  <a href="index.html" title="">Keep It Simple.</a>
-              </h1>
-              <p class="s-header__tagline">Put your awesome tagline here.</p>
+<body style="margin: 0; padding: 0; background-color: #eee; color: #222;">
+  <div data-trackable="main" style="width: 840px; margin: 40px 50px; padding: 0;">
+    <header id="header" data-trackable="header" style="width: 100%; margin: 0; padding: 0;">
+      <div data-trackable="title" style="float: left; height: 100px; width: 60%">
+        <h1 id="title">Consent Manager Demo</h1>
+      </div>
+      <div data-trackable="member" style="float: right; height: 100px; width: 40%; text-align: right;">
+        <button id="login" data-trackable="login">Login</button>
+        <button id="sign-up" data-trackable="sign-up">Sign up</button>
+      </div>
+    </header>
+    <div id="body" data-trackable="body" style="margin-left: auto; margin-right: auto; clear: both; width: 100%">
+      <div id="menu" data-trackable="menu" style="float: left; width: 20%">
+        <ul>
+          <li><a href="./?page=1" data-trackable="page-1">Page 1</a></li>
+          <li><a href="./?page=2" data-trackable="page-2">Page 2</a></li>
+          <li><a href="./?page=3" data-trackable="page-3">Page 3</a></li>
+          <li><a href="./?page=4" data-trackable="page-4">Page 4</a></li>
+        </ul>
+        <div>
+          <a href="./?page=ad_1" data-trackable="ad_1"><img src="ad.png" width="90%" /></a>
+        </div>
+        <div>
+          <a href="./?page=ad_2" data-trackable="ad_2"><img src="ad.png" width="90%" /></a>
+        </div>
+      </div>
+      <div id="content" data-trackable="content" style="float: right; width: 80%">
+        <article>
+          <h2 role="button">Article Subject</h2>
+          <div data-trackable="article-text">
+            <h3>This is a test page.</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>Perhaps, this page is much useful.</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>Want to test Media Tracking?</h3>
+            <p>Here is a video for you.</p>
+            <video id="video-player" src="movie.mp4" width="100%" controls></video>
+            <h3>Is this nice?</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+              non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
-
-      </div> <!-- end row -->
-
-     <nav class="s-header__nav-wrap">
-
-         <div class="row">
-
-              <ul class="s-header__nav">
-                  <li class="current"><a href="index.html">Home</a></li>
-                  <li class="has-children"><a href="#0">Dropdown</a>
-                      <ul>
-                          <li><a href="#0">Submenu 01</a></li>
-                          <li><a href="#0">Submenu 02</a></li>
-                          <li><a href="#0">Submenu 03</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="demo.html">Demo</a></li>
-                  <li><a href="archives.html">Archives</a></li>
-                  <li class="has-children"><a href="#0">Blog</a>
-                      <ul>
-                          <li><a href="blog.html">Blog Entries</a></li>
-                          <li><a href="single.html">Single Blog</a></li>
-                      </ul>
-                  </li>
-                  <li><a href="page.html">Page</a></li>
-              </ul> <!-- end #nav -->
-
-         </div>
-
-      </nav> <!-- end #nav-wrap -->
-
-      <a class="header-menu-toggle" href="#0" title="Menu"><span>Menu</span></a>
-
-  </header> <!-- Header End -->
-
-
-
-  <!-- Content
-  ================================================== -->
-  <div class="s-content">
-
-      <div class="row">
-
-          <div id="main" class="s-content__main large-8 column">
-
-              <article class="entry">
-
-                  <header class="entry__header">
-
-                      <h2 class="entry__title h1">
-                          <a href="single.html" title="">Hey, We Love Open Sans!</a>
-                      </h2>
-
-                      <div class="entry__meta">
-                          <ul>
-                              <li>July 12, 2019</li>
-                              <li><a href="#" title="" rel="category tag">Ghost</a></li>
-                              <li>John Doe</li>
-                          </ul>
-                      </div>
-
-                  </header>
-
-                  <div class="entry__content">
-                      <p>
-                      Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi
-                      est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor
-                      irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor
-                      veniam consequat non laborum adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa
-                      occaecat ut laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in
-                      adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
-                      </p>
-                  </div>
-
-              </article> <!-- end entry -->
-
-              <article class="entry">
-
-                  <header class="entry__header">
-
-                      <h2 class="entry__title h1">
-                          <a href="single.html" title="">We Need Better Typography.</a>
-                      </h2>
-
-                      <div class="entry__meta">
-                          <ul>
-                              <li>July 11, 2019</li>
-                              <li>
-                                  <a href="#" title="" rel="category tag">Wordpress</a>,
-                                  <a href="#" title="" rel="category tag">Ghost</a>
-                              </li>
-                              <li>Jane Doe</li>
-                          </ul>
-                      </div>
-
-                  </header>
-
-                  <div class="entry__content">
-                      <p>
-                      Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi
-                      est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor
-                      irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor
-                      veniam consequat non laborum adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa
-                      occaecat ut laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in
-                      adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
-                      </p>
-                  </div>
-
-              </article> <!-- end entry -->
-
-              <article class="entry">
-
-                  <header class="entry__header">
-
-                      <h2 class="entry__title h1">
-                          <a href="single.html" title="">White Space Everywhere.</a>
-                      </h2>
-
-                      <div class="entry__meta">
-                          <ul>
-                              <li>July 10, 2019</li>
-                              <li>
-                                  <a href="#" title="" rel="category tag">Joomla</a>,
-                                  <a href="#" title="" rel="category tag">Drupal</a>
-                              </li>
-                              <li>Naruto Uzumaki</li>
-                          </ul>
-                      </div>
-
-                  </header>
-
-                  <div class="entry__content">
-                      <p>
-                      Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit nisi
-                      est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam dolor dolor
-                      irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore cillum sit in tempor
-                      veniam consequat non laborum adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa
-                      occaecat ut laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat in
-                      adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud sed sed.
-                      </p>
-                  </div>
-
-              </article> <!-- end entry -->
-
-              <article class="entry">
-
-                  <header class="entry__header">
-
-                      <h2 class="entry__title h1">
-                          <a href="single.html" title="">Simple And Minimalist Designs.</a>
-                      </h2>
-
-                      <div class="entry__meta">
-                          <ul>
-                              <li>July 09, 2019</li>
-                              <li>
-                                  <a href="#" title="" rel="category tag">Ghost</a>
-                              </li>
-                              <li>Naruto Uzumaki</li>
-                          </ul>
-                      </div>
-
-                  </header>
-
-                  <div class="entry__content">
-                      <p>
-                      Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor
-                      sunt sint sit nisi est eu exercitation incididunt adipisicing veniam velit id fugiat
-                      enim mollit amet anim veniam dolor dolor irure velit commodo cillum sit nulla ullamco
-                      magna amet magna cupidatat qui labore cillum sit in tempor veniam consequat non laborum
-                      adipisicing aliqua ea nisi sint ut quis proident ullamco ut dolore culpa occaecat ut
-                      laboris in sit minim cupidatat ut dolor voluptate enim veniam consequat occaecat fugiat
-                      in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit quis nostrud
-                      sed sed.
-                      </p>
-                  </div>
-
-              </article> <!-- end entry -->
-
-         </div> <!-- end main -->
-
-
-         <div id="sidebar" class="s-content__sidebar large-4 column">
-
-             <div class="widget widget--search">
-                <h3 class="h6">Search</h3>
-                <form action="#">
-                   <input type="text" value="Search here..." onblur="if(this.value == '') { this.value = 'Search here...'; }" onfocus="if (this.value == 'Search here...') { this.value = ''; }" class="text-search">
-                   <input type="submit" value="" class="submit-search">
-                </form>
-             </div>
-
-             <div class="widget widget--categories">
-                 <h3 class="h6">Categories.</h3>
-                 <ul>
-                      <li><a href="#0" title="">Wordpress</a> (2)</li>
-                      <li><a href="#0" title="">Ghost</a> (14)</li>
-                      <li><a href="#0" title="">Joomla</a> (5)</li>
-                      <li><a href="#0" title="">Drupal</a> (3)</li>
-                      <li><a href="#0" title="">Magento</a> (2)</li>
-                      <li><a href="#0" title="">Uncategorized</a> (9)</li>
-                  </ul>
-              </div>
-
-              <div class="widget widget_text group">
-                  <h3 class="h6">Widget Text.</h3>
-
-                  <p>
-                  Lorem ipsum Ullamco commodo laboris sit dolore commodo aliquip incididunt fugiat esse dolor
-                  aute fugiat minim eiusmod do velit labore fugiat officia ad sit culpa labore in consectetur
-                  sint cillum sint consectetur voluptate adipisicing Duis irure magna ut sit amet reprehenderit.
-                  </p>
-              </div>
-
-              <div class="widget widget_tags">
-                  <h3 class="h6">Post Tags.</h3>
-
-                  <div class="tagcloud group">
-                      <a href="#0">Corporate</a>
-                      <a href="#0">Onepage</a>
-                      <a href="#0">Agency</a>
-                      <a href="#0">Multipurpose</a>
-                      <a href="#0">Blog</a>
-                      <a href="#0">Landing Page</a>
-                      <a href="#0">Resume</a>
-                  </div>
-              </div>
-
-              <div class="widget widget_popular">
-                  <h3 class="h6">Popular Post.</h3>
-
-                  <ul class="link-list">
-                      <li><a href="#">Sint cillum consectetur voluptate.</a></li>
-                      <li><a href="#">Lorem ipsum Ullamco commodo.</a></li>
-                      <li><a href="#">Fugiat minim eiusmod do.</a></li>
-                  </ul>
-              </div>
-
-         </div> <!-- end sidebar -->
-
-     </div> <!-- end row -->
-
- </div> <!-- end content-wrap -->
-
-
-  <!-- Footer
-  ================================================== -->
-  <footer class="s-footer">
-
-      <div class="row s-footer__top">
-          <div class="column">
-              <ul class="s-footer__social">
-                  <li><a href="#0"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-vimeo-v" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                  <li><a href="#0"><i class="fab fa-skype" aria-hidden="true"></i></a></li>
-              </ul>
-          </div>
-      </div> <!-- end footer__top -->
-
-      <div class="row s-footer__bottom">
-
-          <div class="large-6 tab-full column s-footer__info">
-              <h3 class="h6">About Keep It Simple</h3>
-
-              <p>
-              Lorem ipsum Ullamco commodo laboris sit dolore commodo aliquip incididunt fugiat esse dolor
-              aute fugiat minim eiusmod do velit labore fugiat officia ad sit culpa labore in consectetur
-              sint cillum sint consectetur voluptate adipisicing Duis
-              </p>
-
-              <p>
-              Lorem ipsum Sed nulla deserunt voluptate elit occaecat culpa cupidatat sit irure sint
-              sint incididunt cupidatat esse in Ut sed commodo tempor consequat culpa fugiat incididunt.
-              </p>
-          </div>
-
-          <div class="large-6 tab-full column">
-              <div class="row">
-                  <div class="large-8 tab-full column">
-
-                      <h3 class="h6">Photostream</h3>
-
-                      <ul class="photostream group">
-                          <li><a href="#0"><img alt="thumbnail" src="images/thumb.jpg"></a></li>
-                          <li><a href="#0"><img alt="thumbnail" src="images/thumb.jpg"></a></li>
-                          <li><a href="#0"><img alt="thumbnail" src="images/thumb.jpg"></a></li>
-                          <li><a href="#0"><img alt="thumbnail" src="images/thumb.jpg"></a></li>
-                          <li><a href="#0"><img alt="thumbnail" src="images/thumb.jpg"></a></li>
-                          <li><a href="#0"><img alt="thumbnail" src="images/thumb.jpg"></a></li>
-                          <li><a href="#0"><img alt="thumbnail" src="images/thumb.jpg"></a></li>
-                          <li><a href="#0"><img alt="thumbnail" src="images/thumb.jpg"></a></li>
-                      </ul>
-
-                  </div>
-
-                  <div class="large-4 tab-full column">
-                      <h3  class="h6">Navigate</h3>
-
-                      <ul class="s-footer__list s-footer-list--nav group">
-                          <li><a href="#0">Home</a></li>
-                          <li><a href="#0">Blog</a></li>
-                          <li><a href="#0">Demo</a></li>
-                          <li><a href="#0">Archives</a></li>
-                          <li><a href="#0">About</a></li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-
-          <div class="ss-copyright">
-              <span>© Copyright Keep It Simple 2019</span>
-              <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
-              <span><a href="#" class='edit-preferences'>Website Data Collection Preferences</a></span>
-          </div>
-
-      </div> <!-- end footer__bottom -->
-
-
-      <div class="ss-go-top">
-          <a class="smoothscroll" title="Back to Top" href="#top">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0l8 9h-6v15h-4v-15h-6z"/></svg>
-          </a>
-      </div> <!-- end ss-go-top -->
-
-  </footer> <!-- end Footer-->
+        </article>
+        <div id="related-articles" data-trackable="related-articles">
+          <h3>Related Articles</h3>
+          <ul>
+            <li><a href="./?article=a" data-trackable="link-to-A">Article A</a></li>
+            <li><a href="./?article=b" data-trackable="link-to-B">Article B</a></li>
+            <li><a href="./?article=c" data-trackable="link-to-C">Article C</a></li>
+            <li><a href="./?article=d" data-trackable="link-to-D">Article D</a></li>
+          </ul>
+        </div>
+        <div id="recommendations" data-trackable="recommendations">
+          <h3>Recommended</h3>
+          <ul>
+            <li><a href="./?article=a" data-trackable="link-to-A">Article A</a></li>
+            <li><a href="./?article=b" data-trackable="link-to-B">Article B</a></li>
+            <li><a href="./?article=c" data-trackable="link-to-C">Article C</a></li>
+            <li><a href="./?article=d" data-trackable="link-to-D">Article D</a></li>
+          </ul>
+        </div>
+        <div id="latest-articles" data-trackable="latest-article">
+          <h3>Latest News</h3>
+          <ul>
+            <li><a href="./?article=a" data-trackable="link-to-A">Article A</a></li>
+            <li><a href="./?article=b" data-trackable="link-to-B">Article B</a></li>
+            <li><a href="./?article=c" data-trackable="link-to-C">Article C</a></li>
+            <li><a href="./?article=d" data-trackable="link-to-D">Article D</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <footer id="footer" data-trackable="footer" style="clear: both;">
+      <p>Copyright</p>
+      <span><a href="#" class='edit-preferences'>Website Data Collection Preferences</a></span>
+    </footer>
+  </div>
   <script src="https://td-jssdk.s3.amazonaws.com/td-cm.js"></script>
   <script src="js/demo1.js"></script>
 </body>

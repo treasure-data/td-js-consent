@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Consent Management</title>
-  <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/demo2.css">
   <style>
     td-consent-banner {
@@ -31,11 +30,6 @@
           <input type="text" name="contextId">
         </div>
         <div class="form-field">
-          <label for="consentPurpose"> Consent purpose </label>
-          <input type="text" name="consentPurpose">
-        </div>
-
-        <div class="form-field">
           <label for="content"> Content for updating </label>
           <textarea name="content"></textarea>
         </div>
@@ -44,6 +38,10 @@
           <button class="update-consent">Update consent</button>
           <button class="update-context">Update context</button>
         </div>
+      </div>
+
+      <div class="consent-form">
+        <button class="save-contexts">Save Contexts</button>
       </div>
 
       <div class="consent-form consent-form-1">
@@ -73,15 +71,25 @@
         <h2>Example 2</h2>
         <section>
           <h3>Communication preferences</h3>
+          <p>Context is created on fly</p>
           <p>Officia sint exercitation reprehenderit laboris magna.Esse commodo reprehenderit laborum consectetur magna sint ex dolore labore est nulla ullamco.</p>
 
-          <label><input type="checkbox" name="sms"> SMS (Default Context)</label>
           <label><input type="checkbox" name="email"> Email</label>
           <label><input type="checkbox" name="samples"> Samples - Yes I would like to receive FREE Samples from time to time</label>
         </section>
         <button class="save-prefs-2">Save</button>
       </div>
 
+      <div class="consent-form consent-form-3">
+        <h2>Example 3</h2>
+        <section>
+          <h3>Default context</h3>
+          <p>Officia sint exercitation reprehenderit laboris magna.Esse commodo reprehenderit laborum consectetur magna sint ex dolore labore est nulla ullamco.</p>
+
+          <label><input type="checkbox" name="sms"> SMS (Default Context)</label>
+        </section>
+        <button class="save-prefs-3">Save</button>
+      </div>
       <div class="other">
         <a href="#" class="edit-preferences">Website Data Collection Preferences</a>
       </div>
@@ -95,7 +103,8 @@
       <pre class="expired-consents"></pre>
     </div>
   </div>
-  <script src="https://td-jssdk.s3.amazonaws.com/td-cm.js"></script>
+
+  <script src="https://td-jssdk.s3.amazonaws.com/td-cm.min.js"></script>
   <script src="js/demo2.js"></script>
 </body>
 </html>
