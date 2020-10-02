@@ -22,7 +22,7 @@ This add-on depends on  Treasure Data JavaScript SDK to work properly, you need 
 Add the following JavaScript snippet to your website, it is better to put it at the end of the body tag
 
 ```javascript
-<script src="link to js file"></script>
+<script src="https://cdn.treasuredata.com/cm/0.1/td-cm.min.js"></script>
 ```
 
 When the script finishes loading, an object TDConsentManager is available in browser’s global context. You can use that object to setup your configurations accordingly
@@ -39,7 +39,22 @@ This loader dynamically loads the minimum polyfill bundle, using feature detecti
 For more Information: [Web Component loader](https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js)
 
 ### NPM
-[TBD]
+
+Does not work with NodeJS. **Browser only**
+```javascript
+npm install --save td-consent-ui
+```
+Yarn
+```javascript
+yarn add td-consent-ui
+```
+Import
+```javascript
+import TDConsentManager from 'td-consent-ui'
+```
+```javascript
+const TDConsentManager = require('td-consent-ui')
+```
 
 ## Usage
 
@@ -217,7 +232,7 @@ TDConsentManager.opentConsentManager({
       <span><a href="#" class='edit-preferences'>Website Data Collection Preferences</a></span>
     </footer>
   </div>
-  <script src="link_to_cdn"></script>
+  <script src="https://cdn.treasuredata.com/cm/0.1/td-cm.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
     "url": "https://www.treasuredata.com"
   },
   "scripts": {
-    "build": "rollup --config",
+    "build": "./bin/build.sh",
     "test": "jest"
   },
 
