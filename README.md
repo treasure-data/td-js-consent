@@ -96,7 +96,7 @@ TDConsentManager.showBanner()
 
 ### openConsentManager
 
-Show a web form for managing consent preferences. You can show the web form with your additional consents, please see [link] for how a consent looks like.
+Show a web form for managing consent preferences. You can show the web form with your additional consents, please see [Context and Consent](https://github.com/treasure-data/td-js-sdk/blob/master/CONSENTMANAGER.md#context-and-consent) for how a consent looks like.
 
 ```javascript
 TDConsentManager.openConsentManager(options)
