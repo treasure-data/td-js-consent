@@ -17,7 +17,7 @@ A web form for managing consent preferences
 ![form](https://user-images.githubusercontent.com/2680785/94783608-20fa1d80-03f7-11eb-8ac9-919f9747c345.png)
 
 ## Installing
-This add-on depends on  Treasure Data JavaScript SDK to work properly, you need to load Treasure Data JavaScript SDK into your website first, see this for more information.
+This add-on depends on  Treasure Data JavaScript SDK to work properly, you need to load Treasure Data JavaScript SDK into your website first, see [this](https://github.com/treasure-data/td-js-sdk#installing) for more information.
 
 Add the following JavaScript snippet to your website, it is better to put it at the end of the body tag
 
