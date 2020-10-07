@@ -1,10 +1,21 @@
 {
-  "name": "td-js-cmpui",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "name": "td-consent-ui",
+  "version": "0.1.0",
+  "description": "Treasure Data JS SDK Add-on UIs for Consent Extension",
+  "main": "lib/index.js",
+  "license": "Apache-2.0",
+  "bugs":"https://github.com/treasure-data/td-js-consent/issues",
+  "keywords": ["consent extension", "treasure data", "consent manager"],
+  "repository": {
+    "type":"git",
+    "url": "https://github.com/treasure-data/td-js-consent"
+  },
+  "author": {
+    "name": "Treasure Data",
+    "url": "https://www.treasuredata.com"
+  },
   "scripts": {
-    "build": "rollup --config",
+    "build": "./bin/build.sh",
     "test": "jest"
   },
 
