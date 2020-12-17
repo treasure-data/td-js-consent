@@ -32,11 +32,11 @@ When the script finishes loading, an object TDConsentManager is available in bro
 The add-on is using Web Component to build the UIs, some features might not be available in legacy browsers (IE11 for example), includes the following script snippet into your `<head>` tag
 
 ```javascript
-<script src="<https://unpkg.com/@webcomponents/webcomponentsjs/wecomponents-loader.js"></script>
+<script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.5.0/webcomponents-loader.js"></script>
 ```
 This loader dynamically loads the minimum polyfill bundle, using feature detection.
 
-For more Information: [Web Component loader](https://unpkg.com/@webcomponents/webcomponentsjs/webcomponents-loader.js)
+For more Information: [Web Component loader](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs)
 
 ### NPM
 
