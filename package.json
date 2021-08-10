@@ -4,10 +4,14 @@
   "description": "Treasure Data JS SDK Add-on UIs for Consent Extension",
   "main": "lib/index.js",
   "license": "Apache-2.0",
-  "bugs":"https://github.com/treasure-data/td-js-consent/issues",
-  "keywords": ["consent extension", "treasure data", "consent manager"],
+  "bugs": "https://github.com/treasure-data/td-js-consent/issues",
+  "keywords": [
+    "consent extension",
+    "treasure data",
+    "consent manager"
+  ],
   "repository": {
-    "type":"git",
+    "type": "git",
     "url": "https://github.com/treasure-data/td-js-consent"
   },
   "author": {
@@ -18,7 +22,6 @@
     "build": "./bin/build.sh",
     "test": "jest"
   },
-
   "devDependencies": {
     "@babel/core": "^7.11.5",
     "@babel/plugin-transform-runtime": "^7.11.5",
